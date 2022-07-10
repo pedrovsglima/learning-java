@@ -5,22 +5,24 @@ public class App {
         
         Scanner sc = new Scanner(System.in);
 
-        Product prod = new Product();
-
         System.out.println("Enter product data: ");
 
         System.out.print("Name: ");
-        prod.name = sc.nextLine();
+        String name = sc.nextLine();
 
         System.out.print("Price: ");
-        prod.price = sc.nextDouble();
+        double price = sc.nextDouble();
 
         System.out.print("Quantity in stock: ");
-        prod.quantity = sc.nextInt();
+        int quantity = sc.nextInt();
 
+        Product prod = new Product(name, price, quantity);
         prod.removeProducts(50);
-
         System.out.println(prod);
+
+        Product prod1 = new Product(name, price);
+        prod1.addProducts(50);
+        System.out.println(prod1);
 
         sc.close();
     }
