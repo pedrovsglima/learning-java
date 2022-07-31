@@ -1,4 +1,5 @@
 public class App {
+
     public static void main(String[] args) throws Exception {
         
         Account acc = new Account(1001, "Alex", 0.0);
@@ -52,6 +53,6 @@ public class App {
 
         System.out.println(x.getBalance()); // output: 945.0
         System.out.println(y.getBalance()); // output: 950.0
-
     }
+    
 }
