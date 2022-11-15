@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,9 +9,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         
         // READING
-        String path = "C:\\in.txt";
+        String pathRead = "C:\\in.txt";
 
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(pathRead))) {
             String line = br.readLine();
 
             while (line != null) {
@@ -34,6 +35,22 @@ public class App {
         }
         catch (IOException e) {
             e.printStackTrace();;
+        }
+
+        // LISTING FOLDERS/FILES
+        String strPath = "C:\\Users\\pvito\\Downloads\\mestrado";
+        File path = new File(strPath);
+        
+        File[] folders = path.listFiles(File::isDirectory);
+        System.out.println("Folders:");
+        for (File folder:folders) {
+            System.out.println(folder);
+        }
+
+        File[] files = path.listFiles(File::isFile);
+        System.out.println("Files:");
+        for (File file:files) {
+            System.out.println(file);
         }
     }
 }
